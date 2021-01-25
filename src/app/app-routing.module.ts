@@ -1,10 +1,36 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { FullComponent } from './_layouts/full/full.component';
+import { BlankComponent } from './_layouts/blank/blank.component';
+
 const routes: Routes = [];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+
+export const AppRoutingModule: Routes = [
+  {
+    path: '',
+    component: FullComponent,
+    children: [
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
+      {
+        path: 'home',
+        loadChildren: () => import('./public/public.module').then(m => m.PublicModule)
+      }
+    ]
+  },
+  {
+    path: '',
+    component: BlankComponent,
+    children: [
+      {
+        path: 'authentication',
+        loadChildren: () => import('./public/public.module').then(m => m.PublicModule)
+      }
+    ]
+  },
+  {
+    path: '**',
+    redirectTo: '/dashboard'
+  }
+];

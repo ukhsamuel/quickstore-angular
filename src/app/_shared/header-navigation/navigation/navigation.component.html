@@ -1,0 +1,116 @@
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand d-none d-sm-block mr-3 flex-shrink-0" href="index-2.html" style="min-width: 7rem;">
+            <img width="142" src="https://cartzilla.createx.studio/img/logo-dark.png" alt="Cartzilla"/>
+          </a>
+          <a class="navbar-brand d-sm-none mr-2" href="index-2.html" style="min-width: 4.625rem;">
+            <img width="74" src="../../../../assets/img/logo-icon.png" alt="Cartzilla"/>
+          </a>
+          <!-- Search-->
+          <div class="input-group-overlay d-none d-lg-block mx-4">
+          <div class="input-group-prepend-overlay">
+            <span class="input-group-text">
+              <i class="icon-magnifier icons"></i>
+            </span>
+          </div>
+          <input class="form-control prepended-form-control appended-form-control" type="text" placeholder="Search for products">
+          <div class="input-group-append-overlay">
+            <select class="custom-select">
+              <option>All categories</option>
+              <option>Computers</option>
+              <option>Smartphones</option>
+              <option>TV, Video, Audio</option>
+              <option>Cameras</option>
+              <option>Headphones</option>
+              <option>Wearables</option>
+              <option>Printers</option>
+              <option>Video Games</option>
+              <option>Home Music</option>
+              <option>Data Storage</option>
+            </select>
+          </div>
+        </div>
+        <!-- Toolbar-->
+        <div class="navbar-toolbar d-flex flex-shrink-0 align-items-center">
+          <!-- <button class="navbar-toggler" type="button" data-toggle="collapse"  (click)="hi()"> -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse"  (click)="isMenuCollapsed = !isMenuCollapsed">
+              <span class="navbar-toggler-icon"></span>
+        </button>
+          <a class="navbar-tool navbar-stuck-toggler" href="#"><span class="navbar-tool-tooltip">Expand menu</span>
+            <div class="navbar-tool-icon-box">
+              <i class="icon-user icons navbar-tool-icon"></i>
+            </div>
+          </a>
+          <a class="navbar-tool ml-1 ml-lg-0 mr-n1 mr-lg-2" href="#signin-modal" data-toggle="modal">
+          <div class="navbar-tool-icon-box">
+            <i class="icon-user icons navbar-tool-icon"></i>
+          </div>
+          <div class="navbar-tool-text ml-n3"><small>Hello, Sign in</small>My Account</div></a>
+          <div class="navbar-tool-text ml-n3">
+
+            <!-- Departments menu-->
+            <ul class="navbar-nav mega-nav pr-lg-2 mr-lg-2">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle pl-0" href="#" data-toggle="dropdown">
+                  <i class="icon-options icons lign-middle mt-n1 mr-2"></i>
+                  Departments
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown mega-dropdown">
+                    <a class="dropdown-item" href="#" data-toggle="dropdown"><i class="czi-laptop opacity-60 font-size-lg mt-n1 mr-2"></i>Computers &amp; Accessories</a>
+                  </li>
+                  <li class="dropdown mega-dropdown">
+                    <a class="dropdown-item" href="#" data-toggle="dropdown"><i class="czi-mobile opacity-60 font-size-lg mt-n1 mr-2"></i>Smartphones &amp; Tablets</a>
+                  </li>
+                  <li class="dropdown mega-dropdown">
+                    <a class="dropdown-item" href="#" data-toggle="dropdown"><i class="czi-monitor opacity-60 font-size-lg mt-n1 mr-2"></i>TV, Video &amp; Audio</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        <div class="navbar-tool dropdown ml-3">
+          <a class="navbar-tool-icon-box bg-secondary dropdown-toggle" routerLink="/home/view-cart" >
+            <span class="navbar-tool-label">4</span>
+            <i class="icon-basket-loaded icons navbar-tool-icon"></i>
+            <!-- <i class="navbar-tool-icon czi-cart"></i> -->
+          </a>
+          <a class="navbar-tool-text" routerLink="/home/view-cart"><small>My Cart</small>$1,247.00</a>
+          <!-- Cart dropdown-->
+          <div class="dropdown-menu dropdown-menu-right" style="width: 20rem;">
+            <!-- cart -->
+            <app-cart></app-cart>
+          </div>
+        </div>
+        </div>
+      </div>
+    </nav>
+
+    <div *ngIf="!isMenuCollapsed" class="collapse navbar-collapse" class="navbar navbar-expand-lg navbar-light navbar-stuck-menu mt-n2 pt-0 pb-2">
+      <div class="container">
+        <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
+          <!-- Search-->
+          <div class="input-group-overlay d-lg-none my-3">
+            <div class="input-group-prepend-overlay"><span class="input-group-text"><i class="icon-magnifier icons"></i></span></div>
+            <input class="form-control prepended-form-control" type="text" placeholder="Search for products">
+          </div>
+          <!-- Departments menu-->
+            <ul class="navbar-nav mega-nav pr-lg-2 mr-lg-2">
+              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle pl-0" href="#" data-toggle="dropdown"><i class="navbar-toggler-icon align-middle mt-n1 mr-2"></i>Departments</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown mega-dropdown">
+                    <a class="dropdown-item" href="#" data-toggle="dropdown"><i class="czi-laptop opacity-60 font-size-lg mt-n1 mr-2"></i>Computers &amp; Accessories</a>
+                  </li>
+                  <li class="dropdown mega-dropdown">
+                    <a class="dropdown-item" href="#" data-toggle="dropdown"><i class="czi-mobile opacity-60 font-size-lg mt-n1 mr-2"></i>Smartphones &amp; Tablets</a>
+                  </li>
+                  <li class="dropdown mega-dropdown">
+                    <a class="dropdown-item" href="#" data-toggle="dropdown"><i class="czi-monitor opacity-60 font-size-lg mt-n1 mr-2"></i>TV, Video &amp; Audio</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>

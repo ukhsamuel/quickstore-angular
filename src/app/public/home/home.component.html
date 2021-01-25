@@ -1,0 +1,137 @@
+<div>
+    <ngb-carousel *ngIf="images">
+        <ng-template ngbSlide>
+          <div class="wrapper">
+            <img [src]="images[0]" alt="Random first slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>First Slide</h3>
+            <p> Angular 10 Carousel Example </p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="wrapper">
+            <img [src]="images[1]" alt="Random second slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>Second Slide</h3>
+            <p> Check out Techiediaries</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="wrapper">
+            <img [src]="images[2]"  alt="Random third slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>Third Slide</h3>
+            <p>for full tutorial...</p>
+          </div>
+        </ng-template>
+    </ngb-carousel>
+  </div>
+  <div>
+  <!-- Products grid (Trending products)-->
+  <section class="container pt-5">
+    <!-- Heading-->
+    <div class="d-flex flex-wrap justify-content-between align-items-center pt-1 border-bottom pb-4 mb-4">
+        <h2 class="h3 mb-0 pt-3 mr-2">Trending products</h2>
+        <div class="pt-3">
+        <a class="btn btn-outline-accent btn-sm" href="shop-grid-ls.html">
+            More products<i class="icon-arrow-right icons  ml-1 mr-n1"></i>
+        </a>
+        </div>
+    </div>
+    <!-- Grid-->
+    <div class="row pt-2 mx-n2" *ngIf="products">
+        <!-- Product-->
+        <div class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4" *ngFor="let product of products">
+            <app-product-card [product]="product" (addToCartEvent)="addToCart($event)" (quickViewProductEvent)="productQuickViewModal($event)" (viewProductEvent)="viewProduct($event)"></app-product-card>
+            <hr class="d-sm-none">
+        </div>
+    </div>
+  </section>
+
+  <section class="container mt-4 mb-grid-gutter">
+    <div class="bg-faded-info rounded-lg py-4">
+      <div class="row align-items-center">
+      <div class="col-md-5">
+        <div class="px-4 pr-sm-0 pl-sm-5"><span class="badge badge-danger">Limited Offer</span>
+            <h3 class="mt-4 mb-1 text-body font-weight-light">All new</h3>
+            <h2 class="mb-1">Last Gen iPad Pro</h2>
+            <p class="h5 text-body font-weight-light">at discounted price. Hurry up!</p>
+            <a class="btn btn-accent" href="#">View offers<i class="icon-arrow-right icons font-size-ms ml-1"></i></a>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <img src="../../../../assets/img/home/banners/offer.jpg" alt="iPad Pro Offer"></div>
+      </div>
+    </div>
+  </section>
+  <section class="container pb-4 pb-md-5">
+    <div class="row">
+      <!-- Bestsellers-->
+      <div class="col-lg-4 col-md-6 mb-2 py-3">
+        <div class="widget">
+            <h3 class="widget-title">Bestsellers</h3>
+            <app-product-widget  *ngFor="let product of products" [product]="product"></app-product-widget>
+            <p class="mb-0">...</p>
+            <a class="font-size-sm" href="shop-grid-ls.html">
+                View more<i class="icon-arrow-right font-size-xs ml-1"></i>
+            </a>
+        </div>
+      </div>
+      <!-- New arrivals-->
+      <div class="col-lg-4 col-md-6 mb-2 py-3">
+        <div class="widget">
+            <h3 class="widget-title">New arrivals</h3>
+            <app-product-widget  *ngFor="let product of products" [product]="product"></app-product-widget>
+            <p class="mb-0">...</p>
+            <a class="font-size-sm" href="shop-grid-ls.html">
+                View more<i class="icon-arrow-right font-size-xs ml-1"></i>
+            </a>
+        </div>
+      </div>
+      <!-- Top rated-->
+      <div class="col-lg-4 col-md-6 mb-2 py-3">
+        <div class="widget">
+            <h3 class="widget-title">Top rated</h3>
+            <app-product-widget  *ngFor="let product of products" [product]="product"></app-product-widget>
+            <p class="mb-0">...</p>
+            <a class="font-size-sm" href="shop-grid-ls.html">
+                View more<i class="icon-arrow-right font-size-xs ml-1"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container pb-4 mb-md-3">
+    <div class="row">
+      <div class="col-md-8 mb-4">
+        <div class="d-sm-flex justify-content-between align-items-center bg-secondary overflow-hidden rounded-lg">
+            <div class="py-4 my-2 my-md-0 py-md-5 px-4 ml-md-3 text-center text-sm-left">
+            <h4 class="font-size-lg font-weight-light mb-2">Hurry up! Limited time offer</h4>
+            <h3 class="mb-4">Converse All Star on Sale</h3><a class="btn btn-primary btn-shadow btn-sm" href="#">Shop Now</a>
+            </div><img class="d-block ml-auto" src="../../../../assets/img/shop/catalog/banner.jpg" alt="Shop Converse">
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="d-flex flex-column h-100 justify-content-center bg-size-cover bg-position-center rounded-lg" style="background-image: url(../../../../assets/img/blog/banner-bg.jpg);">
+            <div class="py-4 my-2 px-4 text-center">
+                <div class="py-1">
+                    <h5 class="mb-2">Your Add Banner Here</h5>
+                    <p class="font-size-sm text-muted">Hurry up to reserve your spot</p><a class="btn btn-primary btn-shadow btn-sm" href="#">Contact us</a>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container py-lg-4 mb-4">
+    <h2 class="h3 text-center pb-4">Shop by brand</h2>
+    <div class="row" *ngIf="brands">
+        <div class="col-md-3 col-sm-4 col-6" *ngFor="let brand of brands">
+              <app-brand-card [brand]="brand"></app-brand-card>
+        </div>
+    </div>
+  </section>
+</div>
