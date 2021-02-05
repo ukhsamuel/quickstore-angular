@@ -105,6 +105,13 @@ export class ProductService {
     return of(this.products);
   }
 
+  getProductsByCategory$(id) : Observable<Product[]> {
+    var filteredArray = this.products.filter(function (el) {
+      return el.categoryId == id;
+    });
+    return of(filteredArray);
+  }
+
   getBrands$() : Observable<Brand[]> {
     return of(this.brands);
   }

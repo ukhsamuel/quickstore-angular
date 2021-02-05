@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from '../../core/services/product.service';
 import { Product} from '../../_shared/interfaces';
 
@@ -8,8 +8,9 @@ import { Product} from '../../_shared/interfaces';
   styleUrls: ['./view-product.component.scss']
 })
 export class ViewProductComponent implements OnInit {
+  currentDisplayedPhotoIndex : number = 0;
  
-  productDetail: Product;
+  product: Product;
 
   constructor(
     private productService: ProductService,
@@ -17,8 +18,8 @@ export class ViewProductComponent implements OnInit {
 
     this.productService.productDetails$.subscribe(
       (details) => {
-        this.productDetail = details;
-        // console.log(details)
+        this.product = details;
+        console.log(details)
       }
     );
   }
@@ -26,4 +27,8 @@ export class ViewProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  selectPhoto(i){
+    this.currentDisplayedPhotoIndex = i;
+  }
 }

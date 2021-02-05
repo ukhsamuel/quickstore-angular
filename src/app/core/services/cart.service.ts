@@ -80,6 +80,11 @@ export class CartService {
     }
     
   }
+  
+  public quantityChanged(index){
+
+  }
+
   public removeFromCart(productId){
     var newCartItems = this.cartItems.filter(function (el) {
       return el.productId !== productId

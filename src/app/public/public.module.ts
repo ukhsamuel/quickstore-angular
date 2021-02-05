@@ -7,11 +7,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {SharedModule} from '../_shared/shared.module';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { ViewCartComponent } from './view-cart/view-cart.component';
+import { ViewCategoryComponent } from './view-category/view-category.component';
 
 
 
 @NgModule({
-  declarations: [HomeComponent, ViewProductComponent, ViewCartComponent],
+  declarations: [HomeComponent, ViewProductComponent, ViewCartComponent, ViewCategoryComponent],
   imports: [
     RouterModule.forChild(PublicRoutes),
     CommonModule,
