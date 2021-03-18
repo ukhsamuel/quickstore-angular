@@ -12,6 +12,7 @@ export class UtilitiesService {
     storageObjName = {
       // saved device id
       cartItems: 'cartItems',
+      wishlistItems: 'wishlistItems',
     };
 
 

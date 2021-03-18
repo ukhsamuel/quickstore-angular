@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService, CartService } from '../../core/services/';
+import { ProductService, CartService, WishlistService } from '../../core/services/';
 import { Category, Product, Brand} from '../../_shared/interfaces';
 import { ProductQuickViewComponent} from '../../_shared/modals/product-quick-view/product-quick-view.component';
 import { NgbModal, ModalDismissReasons, NgbActiveModal,NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
+    private wishlistService: WishlistService,
     private modalService: NgbModal,
     private cartService: CartService,
     private router: Router,
@@ -64,6 +65,12 @@ export class HomeComponent implements OnInit {
   addToCart(product){
     // add product to observable
     this.cartService.addToCart(product)
+  }
+
+  // add product to wishList
+  addToWishlist(product){
+    // add product to observable
+    this.wishlistService.addToWishlist(product)
   }
 
   productQuickViewModal(product) {

@@ -7,7 +7,7 @@ export interface Brand {
 export interface Category {
     id: number;
     name: string;
-    icon: string;
+    icon?: string;
 }
 
 export interface Product {
@@ -28,6 +28,17 @@ export interface CartItem {
     productName: string;
     photo : string;
     quantity: number;
+    price: number;
+    brandId: number;
+    brandName: string;
+    categoryId: number;
+    categoryName: string;
+}
+
+export interface WishListItem {
+    productId: number;
+    productName: string;
+    photo : string;
     price: number;
     brandId: number;
     brandName: string;

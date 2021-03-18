@@ -8,11 +8,12 @@ import {SharedModule} from '../_shared/shared.module';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { ViewCartComponent } from './view-cart/view-cart.component';
 import { ViewCategoryComponent } from './view-category/view-category.component';
+import { LoginComponent } from './login/login.component';
 
 
 
 @NgModule({
-  declarations: [HomeComponent, ViewProductComponent, ViewCartComponent, ViewCategoryComponent],
+  declarations: [HomeComponent, ViewProductComponent, ViewCartComponent, ViewCategoryComponent, LoginComponent],
   imports: [
     RouterModule.forChild(PublicRoutes),
     CommonModule,

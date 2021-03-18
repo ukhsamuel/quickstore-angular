@@ -1,7 +1,7 @@
 <div class="widget widget-cart px-3 pt-2 pb-3">
     <div style="height: 15rem;" data-simplebar data-simplebar-auto-hide="false">
         <div class="widget-cart-item pb-2 border-bottom"  *ngFor="let cart of cartItems">
-            <button class="close text-danger" type="button" aria-label="Remove"><span aria-hidden="true">&times;</span></button>
+            <button class="close text-danger" (click)="deleteItem(cart.productId)" type="button" aria-label="Remove"><span aria-hidden="true">&times;</span></button>
             <div class="media align-items-center">
                 <a class="d-block mr-2" href="shop-single-v2.html">
                     <img width="64" src="../../../../assets/img/shop/catalog/{{cart.photo}}" alt="Product"/>
@@ -21,8 +21,8 @@
             <span class="text-accent font-size-base ml-1">${{ returnTotal() }}.<small>00</small></span>
         </div>
         <a class="btn btn-outline-secondary btn-sm" href="shop-cart.html">
-            Expand cart<i class="czi-arrow-right ml-1 mr-n1"></i>
+            Expand cart<i class="icon-arrow-right icons ml-1 mr-n1"></i>
         </a>
     </div>
-    <a class="btn btn-primary btn-sm btn-block" href="checkout-details.html"><i class="czi-card mr-2 font-size-base align-middle"></i>Checkout</a>
+    <a class="btn btn-primary btn-sm btn-block" href="checkout-details.html"><i class="icon-wallet icons mr-2 font-size-base align-middle"></i>Checkout</a>
   </div>

@@ -45,7 +45,13 @@
     <div class="row pt-2 mx-n2" *ngIf="products">
         <!-- Product-->
         <div class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4" *ngFor="let product of products">
-            <app-product-card [product]="product" (addToCartEvent)="addToCart($event)" (quickViewProductEvent)="productQuickViewModal($event)" (viewProductEvent)="viewProduct($event)"></app-product-card>
+            <app-product-card 
+              [product]="product" 
+              (addToCartEvent)="addToCart($event)" 
+              (addToWishlistEvent)="addToWishlist($event)" 
+              (quickViewProductEvent)="productQuickViewModal($event)" 
+              (viewProductEvent)="viewProduct($event)">
+            </app-product-card>
             <hr class="d-sm-none">
         </div>
     </div>

@@ -1,7 +1,7 @@
 
       <div class="card product-card">
         <div class="product-card-actions d-flex align-items-center">
-          <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist">
+          <button class="btn-wishlist btn-sm" [class.active-icon]="wishlistService.isProductInWishlist(product.id)" type="button" data-toggle="tooltip" data-placement="left" (click)="addToWishlist(product)" title="Add to wishlist">
             <i class="icon-heart icons"></i>
           </button>
         </div>

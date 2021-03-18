@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WishlistService } from '../../../core/services/';
 
 @Component({
   selector: 'app-topbar',
@@ -6,8 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topbar.component.scss']
 })
 export class TopbarComponent implements OnInit {
+  wishListItems = [];
 
-  constructor() { }
+  constructor(
+    public wishlistService: WishlistService
+  ) {
+    this.wishlistService.wishListDetails$.subscribe(
+      (details) => {
+        this.wishListItems = details;
+      }
+    );
+
+   }
 
   ngOnInit(): void {
   }

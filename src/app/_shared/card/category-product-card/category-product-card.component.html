@@ -1,0 +1,34 @@
+<div class="card product-card product-list">
+    <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist">
+        <i class="icon-heart icons"></i>
+    </button>
+    <div class="d-sm-flex align-items-center">
+        <a class="product-list-thumb" (click)="viewProduct(product)"><img src="../../../../assets/img/shop/catalog/{{product.photos[0]}}" alt="Product"></a>
+        <div class="card-body py-2">
+            <a class="product-meta d-block font-size-xs pb-1" href="#">{{product.categoryName}}</a>
+            <h3 class="product-title font-size-base"><a  (click)="viewProduct(product)">{{product.name}}</a></h3>
+            <div class="d-flex justify-content-between">
+                <div class="product-price"><span class="text-accent">${{product.price}}.<small>00</small></span></div>
+                <div class="star-rating">
+                    <i class="icon-heart icons active"></i>
+                    <i class="icon-heart icons active"></i>
+                    <i class="icon-heart icons active"></i>
+                    <i class="icon-heart icons active"></i>
+                </div>
+            </div>
+            <div class="card-body card-body-hidden">
+                <button class="btn btn-primary btn-sm mb-2" type="button"  (click)="addToCart(product)">
+                    <i class="icon-basket-loaded icons"></i>
+                    Add to Cart
+                </button>
+                <div class="text-left">
+                    <a class="nav-link-style font-size-ms" (click)="quickViewProduct(product)">
+                        <i class="icon-eye align-middle mr-1 icons"></i>
+                        Quick view
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="pt-3 mt-3">

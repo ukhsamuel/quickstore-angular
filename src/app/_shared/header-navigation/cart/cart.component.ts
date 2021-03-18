@@ -16,8 +16,6 @@ export class CartComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-
     this.cartService.cartDetails$.subscribe(
       (details) => {
         this.cartItems = details;
@@ -26,6 +24,10 @@ export class CartComponent implements OnInit {
     );
   }
 
+  deleteItem(id){
+    this.cartService.removeFromCart(id)
+  }
+  
   returnTotal(){
     let total = 0;
     // calculate total of price

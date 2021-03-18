@@ -98,6 +98,29 @@ export class ProductService {
 
   ]
 
+  categories: Category[] =  [
+    {
+      id: 1,
+      name: 'Shoes',
+      icon: 'icon-mustache icons'
+    },
+    {
+      id: 2,
+      name: 'Clothing',
+      icon: 'icon-badge icons'
+    },
+    {
+      id: 3,
+      name: 'Bags',
+      icon: 'icon-bag icons'
+    },
+    {
+      id: 4,
+      name: 'Watches',
+      icon: 'icon-diamond icons'
+    },
+
+  ]
  
   constructor() { }
 
@@ -112,8 +135,26 @@ export class ProductService {
     return of(filteredArray);
   }
 
+  searchProducts$(term, id) : Observable<Product[]> {
+    var filteredArray = this.products.filter(function (el) {
+      if(id && term){
+        return el.name.includes(term) && el.categoryId == id;
+      }else if(!id && term){
+        console.log(el.name.includes(term))
+        return el.name.includes(term)
+      }
+      // return el.categoryId == id;
+    });
+    return of(filteredArray);
+  }
+
   getBrands$() : Observable<Brand[]> {
     return of(this.brands);
+  }
+
+
+  getCategories$() : Observable<Category[]> {
+    return of(this.categories);
   }
 
 

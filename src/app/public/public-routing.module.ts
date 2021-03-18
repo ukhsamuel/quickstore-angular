@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { ViewCartComponent } from './view-cart/view-cart.component';
 import { ViewCategoryComponent } from './view-category/view-category.component';
@@ -14,19 +15,38 @@ export const PublicRoutes: Routes = [
 		children: [
 			{
 				path: 'home',
-				component: HomeComponent
+				component: HomeComponent,
+				data: {
+					title: 'Home'
+				}
 			},
 			{
 				path: 'view',
-				component: ViewProductComponent
+				component: ViewProductComponent,
+				data: {
+					title: 'View Producr'
+				}
 			},
 			{
 				path: 'cart',
-				component: ViewCartComponent
+				component: ViewCartComponent,
+				data: {
+					title: 'Cart'
+				}
 			},
 			{
 				path: 'category',
-				component: ViewCategoryComponent
+				component: ViewCategoryComponent,
+				data: {
+					title: 'View Category'
+				}
+			},
+			{
+				path: 'login',
+				component: LoginComponent,
+				data: {
+					title: 'Login'
+				}
 			}
 		]
 	}

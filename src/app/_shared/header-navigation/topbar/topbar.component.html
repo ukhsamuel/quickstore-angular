@@ -3,17 +3,16 @@
         <div>
         <div class="topbar-text text-nowrap d-none d-md-inline-block border-light pl-3 ml-3"><span class="text-muted mr-1">Available 24/7 at</span><a class="topbar-link" href="tel:00331697720">(00) 33 169 7720</a></div>
         </div>
-        <div class="topbar-text dropdown d-md-none ml-auto"><a class="topbar-link dropdown-toggle" href="#" data-toggle="dropdown">Wishlist / Compare / Track</a>
-        <ul class="dropdown-menu dropdown-menu-right">
-            <li><a class="dropdown-item" href="account-wishlist.html"><i class="icon-user-unfollow icons font-2xl d-block mt-4"></i>Wishlist (3)</a></li>
-            <li><a class="dropdown-item" href="comparison.html"><i class="czi-compare text-muted mr-2"></i>Compare (3)</a></li>
-            <li><a class="dropdown-item" href="order-tracking.html"><i class="czi-location text-muted mr-2"></i>Order tracking</a></li>
-        </ul>
+        <div class="topbar-text dropdown d-md-none ml-auto">
+            <a class="topbar-link dropdown-toggle" href="#" data-toggle="dropdown">Wishlist / Compare / Track</a>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li><a class="dropdown-item" href="account-wishlist.html"><i class="icon-user-unfollow icons font-2xl d-block mt-4"></i>Wishlist ({{wishListItems.length}})</a></li>
+                <li><a class="dropdown-item" href=""><i class="czi-location text-muted mr-2"></i>Order tracking</a></li>
+            </ul>
         </div>
         <div class="d-none d-md-block ml-3 text-nowrap">
-        <a class="topbar-link d-none d-md-inline-block" href="account-wishlist.html"><i class="icon-heart icons  mt-n1"></i>Wishlist (3)</a>
-        <a class="topbar-link ml-3 pl-3 border-left border-light d-none d-md-inline-block" href="comparison.html"><i class="icon-refresh icons mt-n1"></i>Compare (3)</a>
-        <a class="topbar-link ml-3 border-left border-light pl-3 d-none d-md-inline-block" href="order-tracking.html"><i class="icon-location-pin icons mt-n1"></i>Order tracking</a>
+            <a class="topbar-link d-none d-md-inline-block" href=""><i class="icon-heart icons  mt-n1"></i>Wishlist ({{wishListItems.length}})</a>
+            <a class="topbar-link ml-3 border-left border-light pl-3 d-none d-md-inline-block" href=""><i class="icon-location-pin icons mt-n1"></i>Order tracking</a>
         </div>
     </div>
 </div>

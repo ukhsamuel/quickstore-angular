@@ -9,6 +9,7 @@ import { BlankComponent } from './_layouts/blank/blank.component';
 import { Routes, RouterModule } from '@angular/router';
 import {SharedModule} from './_shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { NgxTypeaheadModule } from 'ngx-typeahead';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     SharedModule,
     CoreModule,
+    NgxTypeaheadModule,
     NgbModule,
     RouterModule.forRoot(AppRoutingModule, { useHash: false })
   ],

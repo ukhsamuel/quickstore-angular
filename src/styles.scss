@@ -5349,7 +5349,7 @@
 	 display: inline-block;
 	 padding-right: .425rem;
 	 color: #a6acb7;
-	 content: "î¤Š"
+	 content: ">"
  }
  
  .breadcrumb-item+.breadcrumb-item:hover::before {
@@ -14138,8 +14138,11 @@
  }
  
  .navbar-light .mega-nav::after {
-	 background-color: #e3e9ef
- }
+	background-color: #e3e9ef
+}
+.navbar-tool::after {
+	background-color: #e3e9ef
+}
  
  .navbar-dark .nav-link>i {
 	 transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out;
@@ -17758,3 +17761,16 @@
     border-radius: 15% !important
   }
  /*# sourceMappingURL=theme.min.css.map */
+
+ .ta-item{
+    text-align: left;
+}
+
+.ta-results{
+	width: 438pt;
+}
+
+.active-icon{
+	background-color: #fe696a;
+	color: #fff;
+}

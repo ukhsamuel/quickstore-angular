@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Output, EventEmitter,Input } from '@angular/core';
+import { WishlistService } from '../../../core/services/';
 
 @Component({
   selector: 'app-product-card',
@@ -12,9 +13,16 @@ export class ProductCardComponent {
   @Output() viewProductEvent = new EventEmitter<string>();
   @Output() quickViewProductEvent = new EventEmitter<string>();
   @Output() addToCartEvent = new EventEmitter<string>();
+  @Output() addToWishlistEvent = new EventEmitter<string>();
 
   
 
+  constructor(
+    public wishlistService: WishlistService
+  ) { 
+    // this.cartService.checkForProductInCart(1);
+
+  }
 
   viewProduct(value: string) {
     // console.log('0394893')
@@ -24,8 +32,14 @@ export class ProductCardComponent {
   quickViewProduct(value: string) {
     this.quickViewProductEvent.emit(value);
   }
+  
   addToCart(value: string) {
     this.addToCartEvent.emit(value);
+  }
+
+  addToWishlist(value: string) {
+    console.log('vv')
+    this.addToWishlistEvent.emit(value);
   }
   // constructor() { }
 

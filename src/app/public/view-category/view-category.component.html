@@ -1,4 +1,4 @@
-<app-page-title></app-page-title>
+<app-breadcrumbs></app-breadcrumbs>
 
 <!-- Page Content-->
 <div class="container pb-5 mb-2 mb-md-4">
@@ -34,34 +34,8 @@
                     <!-- Categories-->
                     <div class="widget widget-categories mb-4 pb-4 border-bottom">
                         <h3 class="widget-title">Categories</h3>
-                        <div class="accordion mt-n1" id="shop-categories">
-                            <!-- Shoes-->
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="accordion-heading"><a href="#shoes" role="button">Shoes</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Price range-->
-                    <div class="widget mb-4 pb-4 border-bottom">
-                        <h3 class="widget-title">Price</h3>
-                        <div class="cz-range-slider" data-start-min="250" data-start-max="680" data-min="0" data-max="1000" data-step="1">
-                        <div class="cz-range-slider-ui"></div>
-                        <div class="d-flex pb-1">
-                            <div class="w-50 pr-2 mr-2">
-                            <div class="input-group input-group-sm">
-                                <div class="input-group-prepend"><span class="input-group-text">$</span></div>
-                                <input class="form-control cz-range-slider-value-min" type="text">
-                            </div>
-                            </div>
-                            <div class="w-50 pl-2">
-                            <div class="input-group input-group-sm">
-                                <div class="input-group-prepend"><span class="input-group-text">$</span></div>
-                                <input class="form-control cz-range-slider-value-max" type="text">
-                            </div>
-                            </div>
-                        </div>
+                        <div class="accordion mt-n1" *ngFor="let category of categories" id="shop-categories">
+                            <span class="accordion-heading"><a class="category-link" (click)="filterByCategory(category.id)" role="button">{{category.name}}</a></span>
                         </div>
                     </div>
                     <!-- Filter by Brand-->
@@ -69,22 +43,19 @@
                         <h3 class="widget-title">Brand</h3>
                         <div class="input-group-overlay input-group-sm mb-2">
                             <input class="cz-filter-search form-control form-control-sm appended-form-control" type="text" placeholder="Search">
-                            <div class="input-group-append-overlay"><span class="input-group-text"><i class="czi-search"></i></span></div>
+                            <div class="input-group-append-overlay"><span class="input-group-text"><i class="icon-magnifier icons"></i></span></div>
                         </div>
                         <ul class="widget-list cz-filter-list list-unstyled pt-1" style="max-height: 12rem;" data-simplebar data-simplebar-auto-hide="false">
-                            <li class="cz-filter-item d-flex justify-content-between align-items-center mb-1">
+                            <li *ngFor="let brand of brands" class="cz-filter-item d-flex justify-content-between align-items-center mb-1">
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" id="adidas">
-                                    <label class="custom-control-label cz-filter-item-text" for="adidas">Adidas</label>
+                                    <input
+                                    class="custom-control-input"
+                                    type="checkbox" 
+                                    id="{{brand.name}}"
+                                    (change)="brandChecked($event.target.checked, brand.id)"
+                                    [checked]="checked(brand.id)" >
+                                    <label class="custom-control-label cz-filter-item-text" for="{{brand.name}}">{{brand.name}}</label>
                                 </div>
-                                <span class="font-size-xs text-muted">425</span>
-                            </li>
-                            <li class="cz-filter-item d-flex justify-content-between align-items-center mb-1">
-                                <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" id="ataylor">
-                                    <label class="custom-control-label cz-filter-item-text" for="ataylor">Ann Taylor</label>
-                                </div>
-                                <span class="font-size-xs text-muted">15</span>
                             </li>
                         </ul>
                     </div>
@@ -95,58 +66,8 @@
         <section class="col-lg-8" *ngIf="products">
             <!-- Product-->
             <div *ngFor="let product of products">
-                <div class="card product-card product-list">
-                    <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist">
-                        <i class="icon-heart icons"></i>
-                    </button>
-                    <div class="d-sm-flex align-items-center">
-                        <a class="product-list-thumb" href="shop-single-v1.html"><img src="../../../../assets/img/shop/catalog/{{product.photos[0]}}" alt="Product"></a>
-                        <div class="card-body py-2">
-                            <a class="product-meta d-block font-size-xs pb-1" href="#">{{product.categoryName}}</a>
-                            <h3 class="product-title font-size-base"><a href="shop-single-v1.html">{{product.name}}</a></h3>
-                            <div class="d-flex justify-content-between">
-                                <div class="product-price"><span class="text-accent">${{product.price}}.<small>00</small></span></div>
-                                <div class="star-rating">
-                                  <i class="icon-heart icons active"></i>
-                                  <i class="icon-heart icons active"></i>
-                                  <i class="icon-heart icons active"></i>
-                                  <i class="icon-heart icons active"></i>
-                                </div>
-                            </div>
-                            <div class="card-body card-body-hidden">
-                                <button class="btn btn-primary btn-sm mb-2" type="button" data-toggle="toast" data-target="#cart-toast">
-                                    <i class="icon-basket-loaded icons"></i>
-                                    Add to Cart
-                                </button>
-                                <div class="text-left">
-                                    <a class="nav-link-style font-size-ms" href="#quick-view" data-toggle="modal">
-                                        <i class="icon-eye align-middle mr-1 icons"></i>
-                                        Quick view
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="pt-3 mt-3">
+                <app-category-product-card [product]="product" (addToCartEvent)="addToCart($event)" (quickViewProductEvent)="productQuickViewModal($event)" (viewProductEvent)="viewProduct($event)"></app-category-product-card>
             </div>
-            <!-- Pagination-->
-            <nav class="d-flex justify-content-between pt-2" aria-label="Page navigation">
-                <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#"><i class="czi-arrow-left mr-2"></i>Prev</a></li>
-                </ul>
-                <ul class="pagination">
-                <li class="page-item d-sm-none"><span class="page-link page-link-static">1 / 5</span></li>
-                <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span class="sr-only">(current)</span></span></li>
-                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">2</a></li>
-                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
-                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">4</a></li>
-                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">5</a></li>
-                </ul>
-                <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#" aria-label="Next">Next<i class="czi-arrow-right ml-2"></i></a></li>
-                </ul>
-            </nav>
         </section>
     </div>
 </div>

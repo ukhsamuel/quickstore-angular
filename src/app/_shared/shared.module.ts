@@ -10,6 +10,10 @@ import { TopbarComponent } from './header-navigation/topbar/topbar.component';
 import { ProductQuickViewComponent } from './modals/product-quick-view/product-quick-view.component';
 import { CartComponent } from './header-navigation/cart/cart.component';
 import { PageTitleComponent } from './header-navigation/page-title/page-title.component';
+import { CategoryProductCardComponent } from './card/category-product-card/category-product-card.component';
+import { BreadcrumbsComponent } from './header-navigation/breadcrumbs/breadcrumbs.component';
+import { SearchComponent } from './header-navigation/search/search.component';
+import { NgxTypeaheadModule } from 'ngx-typeahead';
 
 
 
@@ -23,7 +27,10 @@ import { PageTitleComponent } from './header-navigation/page-title/page-title.co
     TopbarComponent,
     ProductQuickViewComponent,
     CartComponent,
-    PageTitleComponent
+    PageTitleComponent,
+    CategoryProductCardComponent,
+    BreadcrumbsComponent,
+    SearchComponent
   ],
   exports: [
     ProductCardComponent,
@@ -32,10 +39,13 @@ import { PageTitleComponent } from './header-navigation/page-title/page-title.co
     NavigationComponent,
     PageTitleComponent,
     FooterComponent,
-    TopbarComponent
+    TopbarComponent,
+    CategoryProductCardComponent,
+    BreadcrumbsComponent
   ],
   imports: [
     CommonModule,
+    NgxTypeaheadModule,
     NgbModule
   ]
 })
