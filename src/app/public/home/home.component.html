@@ -1,30 +1,39 @@
 <div>
-    <ngb-carousel *ngIf="images">
+    <ngb-carousel *ngIf="images" style="height: 600px;">
         <ng-template ngbSlide>
           <div class="wrapper">
-            <img [src]="images[0]" alt="Random first slide">
+            <img src="../../../../assets/img/home/banner1.jpeg">
           </div>
           <div class="carousel-caption">
-            <h3>First Slide</h3>
-            <p> Angular 10 Carousel Example </p>
+            <h3>Big Sale Up To 30% Off</h3>
+            <p>Don’t miss a chance to get these by pleasant price</p>
+            <a class="slide-btn" href="#">
+                View more
+            </a>
           </div>
         </ng-template>
         <ng-template ngbSlide>
           <div class="wrapper">
-            <img [src]="images[1]" alt="Random second slide">
+            <img src="../../../../assets/img/home/banner2.png">
           </div>
           <div class="carousel-caption">
-            <h3>Second Slide</h3>
-            <p> Check out Techiediaries</p>
+            <h3>20% Off Cool Summer Outfits</h3>
+            <p>Don’t miss a chance to get these by pleasant price</p>
+            <a class="slide-btn" href="#">
+                View more 
+            </a>
           </div>
         </ng-template>
         <ng-template ngbSlide>
           <div class="wrapper">
-            <img [src]="images[2]"  alt="Random third slide">
+            <img src="../../../../assets/img/home/banner3.png">
           </div>
           <div class="carousel-caption">
-            <h3>Third Slide</h3>
-            <p>for full tutorial...</p>
+            <h3>We are offering you our unique and original products.</h3>
+            <p>Don’t miss a chance to get these by pleasant price</p>
+            <a class="slide-btn" href="#">
+                View more
+            </a>
           </div>
         </ng-template>
     </ngb-carousel>
@@ -36,7 +45,7 @@
     <div class="d-flex flex-wrap justify-content-between align-items-center pt-1 border-bottom pb-4 mb-4">
         <h2 class="h3 mb-0 pt-3 mr-2">Trending products</h2>
         <div class="pt-3">
-        <a class="btn btn-outline-accent btn-sm" href="shop-grid-ls.html">
+        <a class="btn btn-outline-accent btn-sm" href="#">
             More products<i class="icon-arrow-right icons  ml-1 mr-n1"></i>
         </a>
         </div>
@@ -79,9 +88,9 @@
       <div class="col-lg-4 col-md-6 mb-2 py-3">
         <div class="widget">
             <h3 class="widget-title">Bestsellers</h3>
-            <app-product-widget  *ngFor="let product of products" [product]="product"></app-product-widget>
+            <app-product-widget (viewProductEvent)="viewProduct($event)" *ngFor="let product of products" [product]="product"></app-product-widget>
             <p class="mb-0">...</p>
-            <a class="font-size-sm" href="shop-grid-ls.html">
+            <a class="font-size-sm" href="#">
                 View more<i class="icon-arrow-right font-size-xs ml-1"></i>
             </a>
         </div>
@@ -92,8 +101,8 @@
             <h3 class="widget-title">New arrivals</h3>
             <app-product-widget  *ngFor="let product of products" [product]="product"></app-product-widget>
             <p class="mb-0">...</p>
-            <a class="font-size-sm" href="shop-grid-ls.html">
-                View more<i class="icon-arrow-right font-size-xs ml-1"></i>
+            <a class="font-size-sm" href="#">
+              View more<i class="icon-arrow-right font-size-xs ml-1"></i>
             </a>
         </div>
       </div>
@@ -103,8 +112,8 @@
             <h3 class="widget-title">Top rated</h3>
             <app-product-widget  *ngFor="let product of products" [product]="product"></app-product-widget>
             <p class="mb-0">...</p>
-            <a class="font-size-sm" href="shop-grid-ls.html">
-                View more<i class="icon-arrow-right font-size-xs ml-1"></i>
+            <a class="font-size-sm" href="#">
+              View more<i class="icon-arrow-right font-size-xs ml-1"></i>
             </a>
         </div>
       </div>
@@ -115,9 +124,10 @@
       <div class="col-md-8 mb-4">
         <div class="d-sm-flex justify-content-between align-items-center bg-secondary overflow-hidden rounded-lg">
             <div class="py-4 my-2 my-md-0 py-md-5 px-4 ml-md-3 text-center text-sm-left">
-            <h4 class="font-size-lg font-weight-light mb-2">Hurry up! Limited time offer</h4>
-            <h3 class="mb-4">Converse All Star on Sale</h3><a class="btn btn-primary btn-shadow btn-sm" href="#">Shop Now</a>
-            </div><img class="d-block ml-auto" src="../../../../assets/img/shop/catalog/banner.jpg" alt="Shop Converse">
+              <h4 class="font-size-lg font-weight-light mb-2">Hurry up! Limited time offer</h4>
+              <h3 class="mb-4">Converse All Star on Sale</h3><a class="btn btn-primary btn-shadow btn-sm" href="#">Shop Now</a>
+            </div>
+            <img class="d-block ml-auto" src="../../../../assets/img/shop/catalog/banner.jpg" alt="Shop Converse">
         </div>
       </div>
       <div class="col-md-4 mb-4">

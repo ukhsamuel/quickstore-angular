@@ -65,7 +65,7 @@ export class NavigationComponent implements OnInit {
 
     viewCategory(id){
       let c = id;
-      this.router.navigate(['/home/category'], { queryParams: { c }});     
+      this.router.navigate(['/category'], { queryParams: { c }});     
     }
   
   

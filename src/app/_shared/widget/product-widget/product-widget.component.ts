@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Output, EventEmitter,Input } from '@angular/core';
 
 @Component({
   selector: 'app-product-widget',
@@ -8,10 +9,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProductWidgetComponent implements OnInit {
 
   @Input() public product;
-  
+  @Output() viewProductEvent = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  viewProduct(value: string) {
+    // console.log('0394893')
+    this.viewProductEvent.emit(value);
   }
 
 }

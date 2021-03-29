@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
   viewProduct(product){
     // add product to observable
     this.productService.updateProductDetails(product)
-    this.router.navigate(['home/view']);
+    this.router.navigate(['view']);
   }
 
   // add product to cart

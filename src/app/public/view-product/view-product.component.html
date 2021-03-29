@@ -1,4 +1,4 @@
-<app-page-title></app-page-title>
+<app-breadcrumbs></app-breadcrumbs>
 <!-- Page Content-->
 <div class="container">
     <!-- Gallery + details-->
@@ -37,92 +37,30 @@
                         <div class="star-rating"><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star"></i>
                         </div>
                         <span class="d-inline-block font-size-sm text-body align-middle mt-1 ml-1">74 Reviews</span></a>
-                    <button class="btn-wishlist mr-0 mr-lg-n3" type="button" data-toggle="tooltip" title="Add to wishlist"><i class="czi-heart"></i></button>
+                        <button class="btn-wishlist mr-0 mr-lg-n3" type="button" data-toggle="tooltip" title="Add to wishlist"><i class="czi-heart"></i></button>
                     </div>
                     <div class="mb-3">
                         <span class="h3 font-weight-normal text-accent mr-1">${{product.price}}.<small>99</small></span>
                         <del class="text-muted font-size-lg mr-3">${{product.price + (product.price/0.8)}}.<small>00</small></del><span class="badge badge-danger badge-shadow align-middle mt-n2">Sale</span>
                     </div>
                     <form class="mb-grid-gutter" method="post">
-                    <div class="form-group d-flex align-items-center">
-                        <select class="custom-select mr-3" style="width: 5rem;">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        </select>
-                        <button class="btn btn-primary btn-shadow btn-block" type="submit"><i class="czi-cart font-size-lg mr-2"></i>Add to Cart</button>
-                    </div>
+                        <div class="form-group d-flex align-items-center">
+                            <select class="custom-select mr-3" style="width: 5rem;">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            </select>
+                            <button class="btn btn-primary btn-shadow btn-block" type="submit">
+                                <i class="icon-basket-loaded font-size-lg mr-2"></i>Add to Cart</button>
+                        </div>
                     </form>
-                    <!-- Product panels-->
-                    <div class="accordion mb-4" id="productPanels">
-                        <div class="card">
-                            <div class="card-header">
-                            <h3 class="accordion-heading"><a class="collapsed" href="#shippingOptions" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="shippingOptions"><i class="czi-delivery text-muted lead align-middle mt-n1 mr-2"></i>Shipping options<span class="accordion-indicator"></span></a></h3>
-                            </div>
-                            <div class="collapse" id="shippingOptions" data-parent="#productPanels">
-                            <div class="card-body font-size-sm">
-                                <div class="d-flex justify-content-between border-bottom pb-2">
-                                <div>
-                                    <div class="font-weight-semibold text-dark">Courier</div>
-                                    <div class="font-size-sm text-muted">2 - 4 days</div>
-                                </div>
-                                <div>$26.50</div>
-                                </div>
-                                <div class="d-flex justify-content-between border-bottom py-2">
-                                <div>
-                                    <div class="font-weight-semibold text-dark">Local shipping</div>
-                                    <div class="font-size-sm text-muted">up to one week</div>
-                                </div>
-                                <div>$10.00</div>
-                                </div>
-                                <div class="d-flex justify-content-between border-bottom py-2">
-                                <div>
-                                    <div class="font-weight-semibold text-dark">Flat rate</div>
-                                    <div class="font-size-sm text-muted">5 - 7 days</div>
-                                </div>
-                                <div>$33.85</div>
-                                </div>
-                                <div class="d-flex justify-content-between border-bottom py-2">
-                                <div>
-                                    <div class="font-weight-semibold text-dark">UPS ground shipping</div>
-                                    <div class="font-size-sm text-muted">4 - 6 days</div>
-                                </div>
-                                <div>$18.00</div>
-                                </div>
-                                <div class="d-flex justify-content-between pt-2">
-                                <div>
-                                    <div class="font-weight-semibold text-dark">Local pickup from store</div>
-                                    <div class="font-size-sm text-muted">&mdash;</div>
-                                </div>
-                                <div>$0.00</div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                            <h3 class="accordion-heading"><a class="collapsed" href="#localStore" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="localStore"><i class="czi-location text-muted font-size-lg align-middle mt-n1 mr-2"></i>Find in local store<span class="accordion-indicator"></span></a></h3>
-                            </div>
-                            <div class="collapse" id="localStore" data-parent="#productPanels">
-                            <div class="card-body">
-                                <select class="custom-select">
-                                <option value>Select your country</option>
-                                <option value="Argentina">Argentina</option>
-                                <option value="Belgium">Belgium</option>
-                                <option value="France">France</option>
-                                <option value="Germany">Germany</option>
-                                <option value="Spain">Spain</option>
-                                <option value="UK">United Kingdom</option>
-                                <option value="USA">USA</option>
-                                </select>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
                     <!-- Sharing-->
-                    <h6 class="d-inline-block align-middle font-size-base my-2 mr-2">Share:</h6><a class="share-btn sb-twitter mr-2 my-2" href="#"><i class="czi-twitter"></i>Twitter</a><a class="share-btn sb-instagram mr-2 my-2" href="#"><i class="czi-instagram"></i>Instagram</a><a class="share-btn sb-facebook my-2" href="#"><i class="czi-facebook"></i>Facebook</a>
+                    <h6 class="d-inline-block align-middle font-size-base my-2 mr-2">Share:</h6>
+                    <a class="share-btn sb-twitter mr-2 my-2" href="#"><i class="icon-social-twitter"></i>Twitter</a>
+                    <a class="share-btn sb-instagram mr-2 my-2" href="#"><i class="icon-social-instagram"></i>Instagram</a>
+                    <a class="share-btn sb-facebook my-2" href="#"><i class="icon-social-facebook"></i>Facebook</a>
                 </div>
             </div>
         </div>
@@ -130,7 +68,9 @@
     </div>
     <!-- Product description section 1-->
     <div class="row align-items-center py-md-3">
-        <div class="col-lg-5 col-md-6 offset-lg-1 order-md-2"><img class="d-block rounded-lg" src="img/shop/single/prod-img.jpg" alt="Image"></div>
+        <div class="col-lg-5 col-md-6 offset-lg-1 order-md-2">
+            <img class="d-block rounded-lg" src="../../../../assets/img/shop/catalog/{{product.photos[1]}}" alt="Image">
+        </div>
         <div class="col-lg-4 col-md-6 offset-lg-1 py-4 order-md-1">
             <h2 class="h3 mb-4 pb-2">{{product.name}} Description</h2>
             <!-- <h6 class="font-size-base mb-3">Soft cotton blend</h6> -->
@@ -141,7 +81,7 @@
     </div>
 </div>
 <!-- Reviews-->
-<div class="border-top border-bottom my-lg-3 py-5">
+<!-- <div class="border-top border-bottom my-lg-3 py-5">
 <div class="container pt-md-2" id="reviews">
     <div class="row pb-3">
     <div class="col-lg-4 col-md-5">
@@ -194,7 +134,6 @@
     </div>
     <hr class="mt-4 pb-4 mb-3">
     <div class="row">
-    <!-- Reviews list-->
     <div class="col-md-7">
         <div class="d-flex justify-content-end pb-4">
         <div class="form-inline flex-nowrap">
@@ -208,7 +147,6 @@
             </select>
         </div>
         </div>
-        <!-- Review-->
         <div class="product-review pb-4 mb-4 border-bottom">
         <div class="d-flex mb-3">
             <div class="media media-ie-fix align-items-center mr-4 pr-2"><img class="rounded-circle" width="50" src="img/shop/reviews/01.jpg" alt="Rafael Marquez"/>
@@ -232,7 +170,6 @@
             <button class="btn-dislike" type="button">3</button>
         </div>
         </div>
-        <!-- Review-->
         <div class="product-review pb-4 mb-4 border-bottom">
         <div class="d-flex mb-3">
             <div class="media media-ie-fix align-items-center mr-4 pr-2"><img class="rounded-circle" width="50" src="img/shop/reviews/02.jpg" alt="Barbara Palson"/>
@@ -256,7 +193,6 @@
             <button class="btn-dislike" type="button">1</button>
         </div>
         </div>
-        <!-- Review-->
         <div class="product-review pb-4 mb-4 border-bottom">
         <div class="d-flex mb-3">
             <div class="media media-ie-fix align-items-center mr-4 pr-2"><img class="rounded-circle" width="50" src="img/shop/reviews/03.jpg" alt="Daniel Adams"/>
@@ -284,7 +220,6 @@
         <button class="btn btn-outline-accent" type="button"><i class="czi-reload mr-2"></i>Load more reviews</button>
         </div>
     </div>
-    <!-- Leave review form-->
     <div class="col-md-5 mt-2 pt-4 mt-md-0 pt-md-0">
         <div class="bg-secondary py-grid-gutter px-grid-gutter rounded-lg">
         <h3 class="h4 pb-2">Write a review</h3>
@@ -330,82 +265,4 @@
     </div>
     </div>
 </div>
-</div>
-<!-- Product carousel (You may also like)-->
-<div class="container py-5 my-md-3">
-<h2 class="h3 text-center pb-4">You may also like</h2>
-<div class="cz-carousel cz-controls-static cz-controls-outside">
-    <div class="cz-carousel-inner" data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: true, &quot;nav&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 18},&quot;768&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 20}, &quot;1100&quot;:{&quot;items&quot;:4, &quot;gutter&quot;: 30}}}">
-    <!-- Product-->
-    <div>
-        <div class="card product-card card-static">
-        <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="czi-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="#"><img src="img/shop/catalog/20.jpg" alt="Product"></a>
-        <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Men’s Hoodie</a>
-            <h3 class="product-title font-size-sm"><a href="#">Block-colored Hooded Top</a></h3>
-            <div class="d-flex justify-content-between">
-            <div class="product-price"><span class="text-accent">$24.<small>99</small></span></div>
-            <div class="star-rating"><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star"></i>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div>
-    <!-- Product-->
-    <div>
-        <div class="card product-card card-static">
-        <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="czi-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="#"><img src="img/shop/catalog/21.jpg" alt="Product"></a>
-        <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Men’s Hoodie</a>
-            <h3 class="product-title font-size-sm"><a href="#">Block-colored Hooded Top</a></h3>
-            <div class="d-flex justify-content-between">
-            <div class="product-price text-accent">$26.<small>99</small></div>
-            <div class="star-rating"><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div>
-    <!-- Product-->
-    <div>
-        <div class="card product-card card-static">
-        <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="czi-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="#"><img src="img/shop/catalog/22.jpg" alt="Product"></a>
-        <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Men’s Hoodie</a>
-            <h3 class="product-title font-size-sm"><a href="#">Block-colored Hooded Top</a></h3>
-            <div class="d-flex justify-content-between">
-            <div class="product-price text-accent">$24.<small>99</small></div>
-            <div class="star-rating"><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star"></i><i class="sr-star czi-star"></i>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div>
-    <!-- Product-->
-    <div>
-        <div class="card product-card card-static">
-        <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="czi-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="#"><img src="img/shop/catalog/23.jpg" alt="Product"></a>
-        <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Men’s Hoodie</a>
-            <h3 class="product-title font-size-sm"><a href="#">Block-colored Hooded Top</a></h3>
-            <div class="d-flex justify-content-between">
-            <div class="product-price text-accent">$24.<small>99</small></div>
-            <div class="star-rating"><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star"></i>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div>
-    <!-- Product-->
-    <div>
-        <div class="card product-card card-static">
-        <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="czi-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="#"><img src="img/shop/catalog/24.jpg" alt="Product"></a>
-        <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Men’s Hoodie</a>
-            <h3 class="product-title font-size-sm"><a href="#">Block-colored Hooded Top</a></h3>
-            <div class="d-flex justify-content-between">
-            <div class="product-price text-accent">$25.<small>00</small></div>
-            <div class="star-rating"><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star"></i><i class="sr-star czi-star"></i>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
-</div>
-</div>
+</div> -->

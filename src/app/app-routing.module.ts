@@ -12,15 +12,15 @@ export const AppRoutingModule: Routes = [
     path: '',
     component: FullComponent,
     children: [
-      { path: '', redirectTo: '/home', pathMatch: 'full' },
+      // { path: '', redirectTo: '/home', pathMatch: 'full' },
       {
-        path: 'home',
+        path: '',
         loadChildren: () => import('./public/public.module').then(m => m.PublicModule)
       }
     ]
   },
   {
-    path: '',
+    path: 'authentication',
     component: BlankComponent,
     children: [
       {

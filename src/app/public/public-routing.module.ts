@@ -11,6 +11,14 @@ import { ViewCategoryComponent } from './view-category/view-category.component';
 
 export const PublicRoutes: Routes = [
 	{
+	  path: '',
+	  component: HomeComponent
+	},
+	{
+	  path: 'login',
+	  component: LoginComponent
+	},
+	{
 		path: '',
 		children: [
 			{
@@ -24,7 +32,7 @@ export const PublicRoutes: Routes = [
 				path: 'view',
 				component: ViewProductComponent,
 				data: {
-					title: 'View Producr'
+					title: 'View Product'
 				}
 			},
 			{
@@ -47,6 +55,11 @@ export const PublicRoutes: Routes = [
 				data: {
 					title: 'Login'
 				}
+			},
+			{
+			  path: '',
+			  redirectTo: 'home',
+			  pathMatch: 'full'
 			}
 		]
 	}
