@@ -3,11 +3,11 @@
         <div class="widget-cart-item pb-2 border-bottom"  *ngFor="let cart of cartItems">
             <button class="close text-danger" (click)="deleteItem(cart.productId)" type="button" aria-label="Remove"><span aria-hidden="true">&times;</span></button>
             <div class="media align-items-center">
-                <a class="d-block mr-2" href="shop-single-v2.html">
-                    <img width="64" src="../../../../assets/img/shop/catalog/{{cart.photo}}" alt="Product"/>
+                <a class="d-block mr-2" href="#">
+                    <img width="64" src="/assets/img/shop/catalog/{{cart.photo}}" alt="Product"/>
                 </a>
                 <div class="media-body">
-                    <h6 class="widget-product-title"><a href="shop-single-v2.html">{{cart.productName}}</a></h6>
+                    <h6 class="widget-product-title"><a href="#">{{cart.productName}}</a></h6>
                     <div class="widget-product-meta">
                         <span class="text-accent mr-2">${{cart.price}}.<small>00</small></span><span class="text-muted">x {{cart.quantity}}</span>
                     </div>
@@ -20,9 +20,9 @@
             <span class="text-muted">Subtotal:</span>
             <span class="text-accent font-size-base ml-1">${{ returnTotal() }}.<small>00</small></span>
         </div>
-        <a class="btn btn-outline-secondary btn-sm" href="shop-cart.html">
+        <a class="btn btn-outline-secondary btn-sm" href="#">
             Expand cart<i class="icon-arrow-right icons ml-1 mr-n1"></i>
         </a>
     </div>
-    <a class="btn btn-primary btn-sm btn-block" href="checkout-details.html"><i class="icon-wallet icons mr-2 font-size-base align-middle"></i>Checkout</a>
+    <a class="btn btn-primary btn-sm btn-block" href="#"><i class="icon-wallet icons mr-2 font-size-base align-middle"></i>Checkout</a>
   </div>

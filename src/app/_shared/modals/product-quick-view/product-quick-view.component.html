@@ -14,22 +14,22 @@
                 <div class="cz-product-gallery">
                     <div class="cz-preview order-sm-2">
                         <div class="cz-preview-item active" id="first">
-                            <img class="cz-image-zoom" src="../../../../assets/img/shop/catalog/{{product.photos[currentDisplayedPhotoIndex]}}" alt="Product image">
+                            <img class="cz-image-zoom" src="/assets/img/shop/catalog/{{product.photos[currentDisplayedPhotoIndex]}}" alt="Product image">
                             <div class="cz-image-zoom-pane"></div>
                         </div>
                     </div>
                     <div class="cz-thumblist order-sm-1">
                         <a class="cz-thumblist-item" [class.active]="currentDisplayedPhotoIndex == 0" (click)="selectPhoto(0)"  *ngIf="product.photos[0]">
-                            <img src="../../../../assets/img/shop/catalog/{{product.photos[0]}}" alt="Product thumb">
+                            <img src="/assets/img/shop/catalog/{{product.photos[0]}}" alt="Product thumb">
                         </a>
                         <a class="cz-thumblist-item" [class.active]="currentDisplayedPhotoIndex == 1" (click)="selectPhoto(1)"  *ngIf="product.photos[1]">
-                            <img src="../../../../assets/img/shop/catalog/{{product.photos[1]}}" alt="Product thumb">
+                            <img src="/assets/img/shop/catalog/{{product.photos[1]}}" alt="Product thumb">
                         </a>
                         <a class="cz-thumblist-item" [class.active]="currentDisplayedPhotoIndex == 2" (click)="selectPhoto(2)"  *ngIf="product.photos[2]">
-                            <img src="../../../../assets/img/shop/catalog/{{product.photos[2]}}" alt="Product thumb">
+                            <img src="/assets/img/shop/catalog/{{product.photos[2]}}" alt="Product thumb">
                         </a>
                         <a class="cz-thumblist-item" [class.active]="currentDisplayedPhotoIndex == 3" (click)="selectPhoto(3)" *ngIf="product.photos[3]">
-                            <img src="../../../../assets/img/shop/catalog/{{product.photos[3]}}" alt="Product thumb">
+                            <img src="/assets/img/shop/catalog/{{product.photos[3]}}" alt="Product thumb">
                         </a>
                     </div>
                 </div>
