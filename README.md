@@ -1,27 +1,19 @@
 # Quickstore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
+**Quickstore is an Angular(10) e-commerce starter application.**
 
-## Development server
+It is a plug and play frontend application built using Angular(10) and Observables.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Please check the online demo [here](https://quickstore-angular.web.app/).
 
-## Build
+### Features of this Web appliction are:-
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. Product List Page
+2. Product Detail Page
+3. Filters by Category, options, size etc
+4. Sort(New arrival, Price)
+5. Search
+6. Add/update to cart

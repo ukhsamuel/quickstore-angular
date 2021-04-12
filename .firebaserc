@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "quickstore-angular": {
+      "hosting": {
+        "quickstore": [
+          "quickstore-angular"
+        ]
+      }
+    }
+  }
+}
