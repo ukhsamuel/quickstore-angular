@@ -38,10 +38,12 @@ export class CartService {
   }
 
 
-  public addToCart(product:Product){
+  public addToCart(product, quantity=1){
+    console.log(quantity)
+    console.log(product)
 
     // productIndexInCart(productId)
-    let quantity = 1;
+    // let quantity = 1;
 
     console.log(this.productIndexInCart(product.id));
 
@@ -63,12 +65,12 @@ export class CartService {
       let newCartItem = {
         productId : product.id,
         productName : product.name,
-        photo: product.photos[0],
+        photo: product.photo,
         price: product.price,
-        brandId: product.brandId,
-        brandName: product.brandName,
-        categoryId: product.categoryId,
-        categoryName: product.categoryName,
+        brandId: product.brand.id,
+        brandName: product.brand.name,
+        categoryId: product.category.id,
+        categoryName: product.category.name,
         quantity
       }
 
@@ -93,6 +95,11 @@ export class CartService {
     this.updateCartDetails(this.cartItems);
     
     console.log(newCartItems)
+  }
+
+  public removeAllFromCart(){
+    this.cartItems = [];
+    this.updateCartDetails(this.cartItems);
   }
 
   // check for product in cart and return quantity

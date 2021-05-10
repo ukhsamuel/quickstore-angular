@@ -17,9 +17,9 @@ import { ProductQuickViewComponent } from '../../_shared/modals/product-quick-vi
 })
 export class ViewCategoryComponent implements OnInit {
   passedId: any;
-  products: Product[];
-  categories: Category[];
-  brands: Brand[];
+  products:  any = [];
+  categories:  any = [];
+  brands : any = [];
   selectedBrands = [];
 
   constructor(
@@ -75,7 +75,7 @@ export class ViewCategoryComponent implements OnInit {
       .subscribe((details) => {
         this.products = details;
         // this.orderProduct('alphaASC');
-        // console.log('fff', details);
+        console.log('fff', details);
       });
   }
 

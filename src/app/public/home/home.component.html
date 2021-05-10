@@ -1,5 +1,5 @@
 <div>
-    <ngb-carousel *ngIf="images" style="height: 600px;">
+    <ngb-carousel *ngIf="images" class="home-slider">
         <ng-template ngbSlide>
           <div class="wrapper">
             <img src="assets/img/home/banner1.jpeg">
@@ -77,7 +77,7 @@
             <a class="btn btn-accent" href="#">View offers<i class="icon-arrow-right icons font-size-ms ml-1"></i></a>
         </div>
       </div>
-      <div class="col-md-7">
+      <div class="col-md-7" (click)="showSuccess()">
         <img src="/assets/img/home/banners/offer.jpg" alt="iPad Pro Offer"></div>
       </div>
     </div>
@@ -99,7 +99,7 @@
       <div class="col-lg-4 col-md-6 mb-2 py-3">
         <div class="widget">
             <h3 class="widget-title">New arrivals</h3>
-            <app-product-widget  *ngFor="let product of products" [product]="product"></app-product-widget>
+            <app-product-widget  *ngFor="let product of recentProducts" [product]="product"></app-product-widget>
             <p class="mb-0">...</p>
             <a class="font-size-sm" href="#">
               View more<i class="icon-arrow-right font-size-xs ml-1"></i>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService, CartService } from '../../core/services/';
+import { ProductService, CartService, OrdersService, ToastService } from '../../core/services/';
 import { Product, CartItem} from '../../_shared/interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-cart',
@@ -9,10 +10,23 @@ import { Product, CartItem} from '../../_shared/interfaces';
 })
 export class ViewCartComponent implements OnInit {
   cartItems : CartItem[] = [];
+  showSummary = false;
+  orderInformation = {
+    comment: "",
+    address: "",
+    phone: "",
+    email: "",
+    productIds : "",
+    fee:0
+  }
+  submitted: boolean;
 
   constructor(
     private productService: ProductService,
+    private ordersService: OrdersService,
+    private toastService: ToastService,
     private cartService: CartService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -45,6 +59,58 @@ export class ViewCartComponent implements OnInit {
       total += (item.price * item.quantity)
     })
     return total;
+  }
+
+  submitOrder(){
+    this.submitted = true;
+
+    if(!this.orderInformation.phone || !this.orderInformation.address || !this.orderInformation.email ){
+      return false;
+    }
+
+    
+    this.orderInformation.fee = this.returnTotal();
+
+    let idArray = this.cartItems.map(function(entry){
+      return entry.productId
+    })
+
+    this.orderInformation.productIds = JSON.stringify(idArray)
+
+    console.log(this.orderInformation)
+
+
+    this.ordersService.doOrders$(this.orderInformation).subscribe((res) => {
+        console.log('res: ', res);
+        if(res.status){
+          this.clearForm();
+          this.router.navigate(['/']);
+          this.cartService.removeAllFromCart()
+        }
+    });
+  }
+
+  clearForm(){
+    this.showSummary = false;
+    this.submitted = false;
+    this.orderInformation = {
+      comment: "",
+      address: "",
+      phone: "",
+      email: "",
+      productIds : "",
+      fee:0
+    }
+  }
+
+  showSuccess() {
+    console.log(9999)
+    this.toastService.show('I am a success toast', {
+      classname: 'bg-success text-light',
+      delay: 2000 ,
+      autohide: true,
+      headertext: 'Toast Header'
+    });
   }
 
 }

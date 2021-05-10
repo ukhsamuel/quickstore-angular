@@ -4,6 +4,7 @@ import { Category, Product, Brand} from '../../_shared/interfaces';
 import { ProductQuickViewComponent} from '../../_shared/modals/product-quick-view/product-quick-view.component';
 import { NgbModal, ModalDismissReasons, NgbActiveModal,NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ export class HomeComponent implements OnInit {
   title = 'quickstore';
   // images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
   products : Product[];
+  recentProducts : Product[];
   brands : Brand[];
   images = [700, 800, 807].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
@@ -22,15 +24,20 @@ export class HomeComponent implements OnInit {
     private productService: ProductService,
     private wishlistService: WishlistService,
     private modalService: NgbModal,
+    private toastr: ToastrService,
     private cartService: CartService,
     private router: Router,
   ) { 
     // this.cartService.checkForProductInCart(1);
 
   }
-
+  showSuccess() {
+    console.log(88888)
+    this.toastr.success('Hello world!', 'Toastr fun!');
+  }
   ngOnInit(): void {
     this.getProducts()
+    this.getNewProducts()
     this.getBrands()
   }
 
@@ -40,7 +47,17 @@ export class HomeComponent implements OnInit {
       .toPromise().then(
         (result: any) => {
           this.products = result;
-          // console.log(result)
+          console.log(result)
+        })
+  }
+
+  getNewProducts() {
+    this.productService
+      .getNewProducts$()
+      .toPromise().then(
+        (result: any) => {
+          this.recentProducts = result;
+          console.log(result)
         })
   }
 
@@ -58,7 +75,9 @@ export class HomeComponent implements OnInit {
   viewProduct(product){
     // add product to observable
     this.productService.updateProductDetails(product)
-    this.router.navigate(['view']);
+    const q = product?product?.id:'';
+
+    this.router.navigate(['view'], { queryParams: { q } });
   }
 
   // add product to cart

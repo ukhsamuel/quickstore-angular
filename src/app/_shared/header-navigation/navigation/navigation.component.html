@@ -98,7 +98,7 @@
                 <ul class="dropdown-menu">
                   <li  *ngFor="let category of categories" class="dropdown mega-dropdown">
                     <a class="dropdown-item" (click)="viewCategory(category.id)" data-toggle="dropdown">
-                      <i class="czi-laptop opacity-60 font-size-lg mt-n1 mr-2"></i>{{category.name}}
+                      <i class="{{category.icon}} icons opacity-60 font-size-lg mt-n1 mr-2"></i>{{category.name}}
                     </a>
                   </li>
                 </ul>

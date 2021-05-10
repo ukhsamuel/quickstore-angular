@@ -9,7 +9,7 @@ import { ViewProductComponent } from './view-product/view-product.component';
 import { ViewCartComponent } from './view-cart/view-cart.component';
 import { ViewCategoryComponent } from './view-category/view-category.component';
 import { LoginComponent } from './login/login.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,6 +17,8 @@ import { LoginComponent } from './login/login.component';
   imports: [
     RouterModule.forChild(PublicRoutes),
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgbModule,
     SharedModule
   ]

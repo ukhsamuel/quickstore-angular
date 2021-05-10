@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class NavigationComponent implements OnInit {
   public isMenuCollapsed = true;
   cartItems : CartItem[] = [];
-  categories: Category[];
+  categories: any = [];
   selectedCategory = "";
   products : Product[];
 
@@ -20,20 +20,6 @@ export class NavigationComponent implements OnInit {
   // Typeahead with Local Data List
 
   public productNameList = [];
-
-    public myLocalList = [
-      "Burgers",
-    "Sandwiches",
-    "French Fries",
-    "Milkshakes",
-    "Taco",
-    "Biscuit",
-    "Cookies",
-    "Hot Dog",
-    "Pizza",
-    "Pancake"
-  ];
-
   public search1 = '';
 
 

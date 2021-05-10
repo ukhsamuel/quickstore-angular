@@ -1,9 +1,9 @@
 <div class="media align-items-center pb-2 border-bottom" *ngIf="product" (click)="viewProduct(product)">
-    <a class="d-block mr-2" href="#">
-        <img width="64"  src="../../../../assets/img/shop/catalog/{{product.photos[0]}}" alt="Product">
+    <a class="d-block mr-2" href="javascript:;">
+        <img width="64"  src="{{product.photo}}" alt="Product">
     </a>
     <div class="media-body">
-    <h6 class="widget-product-title"><a href="#">{{product.name}}</a></h6>
+    <h6 class="widget-product-title"><a href="javascript:;">{{product.name}}</a></h6>
     <div class="widget-product-meta">
         <span class="text-accent">${{product.price}}</span></div>
     </div>

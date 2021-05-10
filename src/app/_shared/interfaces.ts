@@ -13,6 +13,7 @@ export interface Category {
 export interface Product {
     id: number;
     name: string;
+    photo : string;
     photos : string[];
     description: string;
     price: number;
@@ -44,4 +45,12 @@ export interface WishListItem {
     brandName: string;
     categoryId: number;
     categoryName: string;
+}
+
+export interface Order {
+    comment: string;
+    address: string;
+    phone: string;
+    productIds: string;
+    fee: string;
 }

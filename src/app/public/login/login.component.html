@@ -13,15 +13,15 @@
                 </div>
                 <hr>
                 <h3 class="font-size-base pt-4 pb-2">Or using form below</h3>
-                <form class="needs-validation" novalidate>
+                <form [formGroup]="loginForm" (ngSubmit)="onSigninSubmit()" class="needs-validation" novalidate>
                     <div class="input-group-overlay form-group">
                         <div class="input-group-prepend-overlay"><span class="input-group-text"><i class="icon-envelope icons"></i></span></div>
-                        <input class="form-control prepended-form-control" type="email" placeholder="Email" required>
+                        <input formControlName="Email" class="form-control prepended-form-control" type="email" placeholder="Email" required>
                     </div>
                     <div class="input-group-overlay form-group">
                         <div class="input-group-prepend-overlay"><span class="input-group-text"><i class="icon-lock icons"></i></span></div>
                         <div class="password-toggle">
-                            <input class="form-control prepended-form-control" type="password" placeholder="Password" required>
+                            <input formControlName="Password" class="form-control prepended-form-control" type="password" placeholder="Password" required>
                             <label class="password-toggle-btn">
                                 <input class="custom-control-input" type="checkbox">
                                 <i class="icon-eye icons password-toggle-indicator"></i>
@@ -38,7 +38,10 @@
                     </div>
                     <hr class="mt-4">
                     <div class="text-right pt-4">
-                        <button class="btn btn-primary" type="submit"><i class="icon-login icons mr-2 ml-n21"></i>Sign In</button>
+                        <button class="btn btn-primary" type="submit">
+                            <i *ngIf="!loginLoading" class="icon-login icons mr-2 ml-n21"></i>
+                            <img *ngIf="loginLoading" class="pl-2" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                              Sign In</button>
                     </div>
                 </form>
                 </div>
@@ -47,54 +50,61 @@
         <div class="col-md-6 pt-4 mt-3 mt-md-0">
             <h2 class="h4 mb-3">No account? Sign up</h2>
             <p class="font-size-sm text-muted mb-4">Registration takes less than a minute but gives you full control over your orders.</p>
-            <form class="needs-validation" novalidate>
+            <form [formGroup]="registerForm" (ngSubmit)="onSignupSubmit()" class="needs-validation" novalidate>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
                         <label for="reg-fn">First Name</label>
-                        <input class="form-control" type="text" required id="reg-fn">
-                        <div class="invalid-feedback">Please enter your first name!</div>
+                        <input formControlName="first_name" class="form-control" type="text" required id="reg-fn">
+                        <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">Please enter your first name!</div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                         <label for="reg-ln">Last Name</label>
-                        <input class="form-control" type="text" required id="reg-ln">
-                        <div class="invalid-feedback">Please enter your last name!</div>
+                        <input formControlName="last_name" class="form-control" type="text" required id="reg-ln">
+                        <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">Please enter your last name!</div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                         <label for="reg-email">E-mail Address</label>
-                        <input class="form-control" type="email" required id="reg-email">
-                        <div class="invalid-feedback">Please enter valid email address!</div>
+                        <input formControlName="email" class="form-control" type="email" required id="reg-email">
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">Please enter valid email address!</div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                         <label for="reg-phone">Phone Number</label>
-                        <input class="form-control" type="text" required id="reg-phone">
-                        <div class="invalid-feedback">Please enter your phone number!</div>
+                        <input formControlName="phone" class="form-control" type="text" required id="reg-phone">
+                        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">Please enter your phone number!</div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                         <label for="reg-password">Password</label>
-                        <input class="form-control" type="password" required id="reg-password">
-                        <div class="invalid-feedback">Please enter password!</div>
+                        <input formControlName="password" class="form-control" type="password" required id="reg-password">
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">Please enter password!</div>
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="form-group">
-                        <label for="reg-password-confirm">Confirm Password</label>
-                        <input class="form-control" type="password" required id="reg-password-confirm">
-                        <div class="invalid-feedback">Passwords do not match!</div>
+                        <div class="form-group btn-space-top">
+                            <button class="btn btn-primary" type="submit">
+                                <i *ngIf="!loading" class="icon-user icons mr-2 ml-n1"></i>                                        
+                                <img *ngIf="loading" class="pl-2" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                Sign Up
+                            </button>
                         </div>
+                        <!-- <div class="form-group">
+                        <label for="reg-password-confirm">Confirm Password</label>
+                        <input formControlName="last_name" *ngIf="submitted && f.first_name.errors" class="form-control" type="password" required id="reg-password-confirm">
+                        <div class="invalid-feedback">Passwords do not match!</div>
+                        </div> -->
                     </div>
                 </div>
-                <div class="text-right">
+                <!-- <div class="text-right">
                     <button class="btn btn-primary" type="submit"><i class="icon-user icons mr-2 ml-n1"></i>Sign Up</button>
-                </div>
+                </div> -->
             </form>
         </div>
     </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService, CartService } from '../../../core/services/';
 import { Product, CartItem} from '../../../_shared/interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -13,6 +14,7 @@ export class CartComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private cartService: CartService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -22,6 +24,10 @@ export class CartComponent implements OnInit {
         console.log('cart', details)
       }
     );
+  }
+
+  gotoCartPage(){
+    this.router.navigate(['cart']);
   }
 
   deleteItem(id){

@@ -4,7 +4,7 @@
             <button class="close text-danger" (click)="deleteItem(cart.productId)" type="button" aria-label="Remove"><span aria-hidden="true">&times;</span></button>
             <div class="media align-items-center">
                 <a class="d-block mr-2" href="#">
-                    <img width="64" src="/assets/img/shop/catalog/{{cart.photo}}" alt="Product"/>
+                    <img width="64" src="{{cart.photo}}" alt="Product"/>
                 </a>
                 <div class="media-body">
                     <h6 class="widget-product-title"><a href="#">{{cart.productName}}</a></h6>
@@ -20,9 +20,9 @@
             <span class="text-muted">Subtotal:</span>
             <span class="text-accent font-size-base ml-1">${{ returnTotal() }}</span>
         </div>
-        <a class="btn btn-outline-secondary btn-sm" href="#">
+        <a class="btn btn-outline-secondary btn-sm" (click)="gotoCartPage()">
             Expand cart<i class="icon-arrow-right icons ml-1 mr-n1"></i>
         </a>
     </div>
-    <a class="btn btn-primary btn-sm btn-block" href="#"><i class="icon-wallet icons mr-2 font-size-base align-middle"></i>Checkout</a>
+    <a class="btn btn-primary btn-sm btn-block" (click)="gotoCartPage()"><i class="icon-wallet icons mr-2 font-size-base align-middle"></i>Checkout</a>
   </div>

@@ -6,7 +6,7 @@
           </button>
         </div>
         <a class="card-img-top d-block overflow-hidden" (click)="viewProduct(product)">
-          <img src="/assets/img/shop/catalog/{{product.photos[0]}}" alt="Product">
+          <img src="{{product.photo}}" alt="Product">
         </a>
         <div class="card-body py-2">
           <a class="product-meta d-block font-size-xs pb-1" (click)="viewProduct(product)">
@@ -18,12 +18,11 @@
           </h3>
           <div class="d-flex justify-content-between">
             <div class="product-price"><span class="text-accent">${{product.price}}</span></div>
-            <div class="star-rating">
-              <i class="icon-heart icons active"></i>
-              <i class="icon-heart icons active"></i>
-              <i class="icon-heart icons active"></i>
-              <i class="icon-heart icons active"></i>
-            </div>
+            <ngb-rating [rate]="product.ratings">
+                <ng-template let-fill="fill">
+                  <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                </ng-template>
+            </ngb-rating>
           </div>
         </div>
         <div class="card-body card-body-hidden">

@@ -1,6 +1,22 @@
 ngb-carousel .carousel {
   height: 610px;
 }
+
+.home-slider{
+  height: 600px;
+}
+
+@media (max-width:480px){
+  .home-slider{
+    height: 200px;
+  }
+
+  ngb-carousel .wrapper>img {
+    height: 200px;
+  }
+}
+
+
 ngb-carousel .wrapper {
   position: relative;
   height: 0;
