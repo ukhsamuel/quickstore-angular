@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { select, Store } from '@ngrx/store';
+
+import { AddToCart, RemoveFromCart, UpdateCart } from '../../store/actions';
 
 import { Category, Product, CartItem} from '../../_shared/interfaces';
 import { UtilitiesService} from './utilities.service';
@@ -16,6 +19,7 @@ export class CartService {
   cartItems : CartItem[] = [];
  
   constructor(
+    private store: Store<{ items: []; cart: [] }>,
     private utilities: UtilitiesService,
   ) { 
     this.loadCart();
@@ -29,38 +33,35 @@ export class CartService {
   }
 
   public loadCart(){
-    let cartString = this.utilities.localStorageGetItem(this.utilities.storageObjName.cartItems);
-    let cartArray = JSON.parse(cartString);
-    this.cartItems = cartArray?cartArray:[]
-    this.updateCartDetails(this.cartItems);
-    // return this.cartItems;
+    this.store.pipe(select(state => state)).subscribe(data => {
+      this.cartItems = data['shop'].cart?data['shop'].cart:[];
+    });
     console.log(this.cartItems);
   }
 
 
   public addToCart(product, quantity=1){
-    console.log(quantity)
-    console.log(product)
-
-    // productIndexInCart(productId)
-    // let quantity = 1;
-
-    console.log(this.productIndexInCart(product.id));
 
     if(this.productIndexInCart(product.id) > -1){
       let i = this.productIndexInCart(product.id);
-      let cartQuantity = this.productQuantityInCart(product.id);
 
-      // console.log(cartQuantity)
-      this.cartItems[i].quantity += 1;
+      console.log(this.cartItems)
+      console.log(this.cartItems[i].quantity)
 
-      this.updateCartDetails(this.cartItems);
-
-      console.log(this.cartItems[i])
-      // this.utilities.localStorageSetItem(this.utilities.storageObjName.cartItems,this.cartItems);
+      let cartItem = {
+        productId : product.id,
+        productName : product.name,
+        photo: product.photo,
+        price: product.price,
+        brandId: product.brand.id,
+        brandName: product.brand.name,
+        categoryId: product.category.id,
+        categoryName: product.category.name,
+        quantity: this.cartItems[i].quantity + 1
+      }
+      this.store.dispatch(new UpdateCart(cartItem));
 
     }else{
-      let cartQuantity = this.productQuantityInCart(product.id);
 
       let newCartItem = {
         productId : product.id,
@@ -74,27 +75,14 @@ export class CartService {
         quantity
       }
 
-      console.log('newCartItem ',newCartItem)
-      this.cartItems.push(newCartItem); 
-      this.updateCartDetails(this.cartItems);
-      // this.utilities.localStorageSetItem(this.utilities.storageObjName.cartItems,this.cartItems);
-
+      this.store.dispatch(new AddToCart(newCartItem));
     }
     
   }
   
-  public quantityChanged(index){
-
-  }
 
   public removeFromCart(productId){
-    var newCartItems = this.cartItems.filter(function (el) {
-      return el.productId !== productId
-    })
-    this.cartItems = newCartItems;
-    this.updateCartDetails(this.cartItems);
-    
-    console.log(newCartItems)
+    this.store.dispatch(new RemoveFromCart(productId));
   }
 
   public removeAllFromCart(){
@@ -102,36 +90,9 @@ export class CartService {
     this.updateCartDetails(this.cartItems);
   }
 
-  // check for product in cart and return quantity
-  productQuantityInCart(productId){
-    let cartString = this.utilities.localStorageGetItem(this.utilities.storageObjName.cartItems);
-    let cartArray = JSON.parse(cartString);
-    var productQuantity = 0;
-    // var i = cartArray.some(function(el) {
-    //   return el.productId === productId;
-    // }); 
-    var index = cartString?cartArray.findIndex(x => x.productId === productId):-1;
-    
-    // if product exists in cart return its quantity and index
-
-    if(index > -1){
-      productQuantity = cartArray[index].quantity;
-    }else{
-      productQuantity = 0;
-    }
-    return productQuantity;
-    console.log(productQuantity);
-  }
-
-  isProductInCart(){
-    
-  }
-
   // return product index in cart
-  productIndexInCart(productId){
-    let cartString = this.utilities.localStorageGetItem(this.utilities.storageObjName.cartItems);
-    let cartArray = JSON.parse(cartString);
-    var index = (!!cartString)?cartArray.findIndex(x => x.productId === productId):-1;
+  productIndexInCart(productId){;
+    var index = this.cartItems.findIndex(x => x.productId === productId);
     // return 0;
     return index;
   }

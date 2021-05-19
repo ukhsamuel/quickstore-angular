@@ -68,7 +68,7 @@
           </a>
           <div class="navbar-tool dropdown ml-3">
             <a class="navbar-tool-icon-box bg-secondary dropdown-toggle" routerLink="/home/view-cart" >
-              <span class="navbar-tool-label">{{cartItems.length}}</span>
+              <span class="navbar-tool-label">{{cartItems?cartItems.length:0}}</span>
               <i class="icon-basket-loaded icons navbar-tool-icon"></i>
               <!-- <i class="navbar-tool-icon czi-cart"></i> -->
             </a>

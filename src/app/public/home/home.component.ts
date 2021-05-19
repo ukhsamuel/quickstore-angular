@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
     private router: Router,
   ) { 
     // this.cartService.checkForProductInCart(1);
-
   }
   showSuccess() {
     console.log(88888)
@@ -47,7 +46,7 @@ export class HomeComponent implements OnInit {
       .toPromise().then(
         (result: any) => {
           this.products = result;
-          console.log(result)
+          // console.log(result)
         })
   }
 
@@ -57,7 +56,7 @@ export class HomeComponent implements OnInit {
       .toPromise().then(
         (result: any) => {
           this.recentProducts = result;
-          console.log(result)
+          // console.log(result)
         })
   }
 

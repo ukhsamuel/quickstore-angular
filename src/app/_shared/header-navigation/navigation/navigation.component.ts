@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService, CartService } from '../../../core/services/';
 import { Category, CartItem,Product} from '../../../_shared/interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
+import { select, Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-navigation',
@@ -26,8 +27,13 @@ export class NavigationComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private cartService: CartService,
-    private router: Router
-    ) { }
+    private router: Router,
+    private store: Store<{ items: []; cart: [] }>
+    ) {
+      this.store.pipe(select(state => state)).subscribe(data => {
+        this.cartItems = data['shop'].cart?data['shop'].cart:[];
+      });
+     }
 
  
     ngOnInit(): void {
@@ -40,9 +46,19 @@ export class NavigationComponent implements OnInit {
       this.cartService.cartDetails$.subscribe(
         (details) => {
           this.cartItems = details;
-          console.log('cart', details)
+          // console.log('cart', details)
         }
       );
+
+
+      // this.store.pipe(select(state => state)).subscribe(data => {
+      //       let cartData = undefined;
+      //       cartData = data;
+      //       // this.cartItems = data['shop'].cart;
+  
+      //       console.log('this.cart', data['shop'].cart);
+      //   });
+
     }
 
     productSelected(result) {
@@ -60,7 +76,7 @@ export class NavigationComponent implements OnInit {
       this.productService.getCategories$().subscribe(
         (details) => {
           this.categories = details;
-          console.log('rrr', details)
+          // console.log('rrr', details)
         }
       );
   
@@ -68,6 +84,8 @@ export class NavigationComponent implements OnInit {
   
   returnCartTotal(){
     let total = 0;
+    if(!this.cartItems)
+      return 0;
     // calculate total of price
     this.cartItems.forEach(item =>{
       total += (item.price * item.quantity)

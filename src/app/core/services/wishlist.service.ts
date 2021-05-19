@@ -33,7 +33,7 @@ export class WishlistService {
     let wishListArray = JSON.parse(wishListString);
     this.wishListItems = wishListArray?wishListArray:[]
     this.updateWishlistDetails(this.wishListItems);
-    console.log(this.wishListItems);
+    // console.log(this.wishListItems);
   }
 
 

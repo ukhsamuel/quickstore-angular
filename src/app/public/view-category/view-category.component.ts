@@ -75,7 +75,7 @@ export class ViewCategoryComponent implements OnInit {
       .subscribe((details) => {
         this.products = details;
         // this.orderProduct('alphaASC');
-        console.log('fff', details);
+        // console.log('fff', details);
       });
   }
 

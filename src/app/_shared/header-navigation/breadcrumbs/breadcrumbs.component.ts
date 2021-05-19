@@ -31,7 +31,6 @@ export class BreadcrumbsComponent implements OnInit {
       .subscribe((event:Data) => {
         this.titleService.setTitle(event['title']);
         this.pageInfo = event;
-        console.log(event)
       });
   }
   ngOnInit() {}
